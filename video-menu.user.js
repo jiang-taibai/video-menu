@@ -42,6 +42,10 @@
      * @returns {boolean}   如果 URL 有效，则返回 true，否则返回 false
      */
     const validateUrl = (url) => {
+        // blob 不是有效的 URL
+        if (url.startsWith('blob:')) {
+            return false;
+        }
         try {
             new URL(url);
             return true;
